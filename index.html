@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Chative</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <meta
+      name="description"
+      content="Real-time chat application with rooms and users."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- Index.html Container -->
+    <div class="container-index">
+      <!-- Header -->
+      <header class="header c80">
+        <img src="./assets/message.svg" alt="Chative logo" />
+        <h1>Chative</h1>
+      </header>
+      <!-- Main Container With Form -->
+      <main class="main c80">
+        <form action="./chat.html" class="form">
+          <div class="form__field">
+            <input
+              aria-label="Username input"
+              type="text"
+              name="username"
+              placeholder=" "
+              spellcheck="false"
+              autocomplete="off"
+              required
+            />
+            <label for="username">Username</label>
+          </div>
+          <div class="form__field">
+            <input
+              aria-label="Room input"
+              type="text"
+              name="room"
+              placeholder=" "
+              spellcheck="false"
+              autocomplete="off"
+              required
+            />
+            <label for="room">Room</label>
+          </div>
+          <button
+            aria-label="Let's go chatting button"
+            class="btn"
+            type="submit"
+          >
+            Let's go
+          </button>
+        </form>
+      </main>
+      <!-- Footer -->
+      <footer class="footer c80">
+        <p>
+          &copy; 2020 |
+          <a
+            aria-label="Author's GitHub page link"
+            target="_blank"
+            href="https://github.com/BloodyBogan/"
+            class="footer__link"
+            >BloodyBogan</a
+          >
+        </p>
+        <p>
+          Icon made by
+          <a
+            aria-label="Icon's author link"
+            target="_blank"
+            href="https://www.flaticon.com/authors/freepik"
+            class="footer__link"
+            >Freepik</a
+          >
+          from
+          <a
+            aria-label="Icon's origin link"
+            target="_blank"
+            href="http://www.flaticon.com/"
+            class="footer__link"
+            >www.flaticon.com</a
+          >
+        </p>
+      </footer>
+    </div>
+    <script type="text/javascript" src="./js/main.js" async defer></script>
+  </body>
+</html>

@@ -1,0 +1,231 @@
+/* Font Import
+========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@900&display=swap');
+
+/* Global Variables
+========================================== */
+$clr-background: #0f0909;
+$clr-text: #dedddd;
+$clr-accent1: #ea110b;
+$clr-accent2: #b8b8b8;
+$font-heading: 'Raleway', sans-serif;
+$font-text: 'Open Sans', serif;
+$transition: all 500ms cubic-bezier(0.5, 0, 0.75, 0);
+$transition2: all 200ms ease-in;
+
+/* Basic Resets & Styling
+========================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: $font-heading;
+  font-weight: 900;
+  margin: 0;
+}
+
+p,
+a,
+input,
+label,
+button,
+select {
+  font-family: $font-text;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.c80 {
+  width: 80%;
+  margin: 0 auto;
+}
+
+body {
+  background-color: $clr-background;
+  color: $clr-text;
+  margin: 0;
+  padding: 6em 0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Index.html Container 
+========================================== */
+.container-index {
+  max-width: 620px;
+  margin: 0 auto;
+
+  /* Header 
+  ========================================== */
+  .header {
+    text-align: center;
+
+    img {
+      width: 128px;
+    }
+
+    h1 {
+      font-size: 4.5rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      line-height: 1.1;
+    }
+  }
+
+  /* Main Container With Form
+  ========================================== */
+  .main {
+    margin-bottom: 6rem;
+
+    .form {
+      .form__field {
+        position: relative;
+        width: 100%;
+        border-bottom: 2px solid $clr-accent2;
+        margin: 4rem auto 1rem;
+
+        &:nth-child(1) {
+          margin-top: 6rem;
+        }
+
+        &:nth-child(2) {
+          margin-bottom: 2rem;
+        }
+
+        &::after {
+          content: '';
+          position: relative;
+          display: block;
+          width: 100%;
+          height: 4px;
+          background-color: $clr-accent1;
+          transform-origin: left;
+          transform: scaleX(0);
+          transition: $transition;
+          top: 2px;
+        }
+
+        &:focus-within {
+          border-color: transparent;
+        }
+
+        &:focus-within::after {
+          transform: scaleX(1);
+        }
+
+        label {
+          position: absolute;
+          left: 0;
+          color: $clr-accent2;
+          font-size: 1.2rem;
+          transform-origin: left;
+          transition: $transition;
+          z-index: -10;
+        }
+
+        &:focus-within label,
+        input:not(:placeholder-shown) + label {
+          transform: scale(0.8) translateY(-3.5rem);
+          opacity: 0.8;
+        }
+
+        input {
+          width: 100%;
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: $clr-text;
+          margin: 0;
+          padding: 0.25rem 0;
+          background: transparent;
+          border: none;
+          outline: none;
+          overflow: hidden;
+        }
+      }
+
+      .btn {
+        position: relative;
+        font-size: 1rem;
+        font-weight: 600;
+        color: $clr-accent2;
+        line-height: 1.2rem;
+        padding: 0.6em 0;
+        background: transparent;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid $clr-accent2;
+        transition: $transition2;
+        cursor: pointer;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 4px;
+          transform-origin: left;
+          transform: scaleX(0);
+          background-color: $clr-accent1;
+          bottom: -2.5px;
+          transition: $transition2;
+        }
+
+        &:hover::before,
+        &:focus::before {
+          transform: scaleX(1);
+          transform-origin: right;
+        }
+
+        &:hover,
+        &:focus {
+          color: $clr-text;
+          border-bottom-color: transparent;
+        }
+      }
+    }
+  }
+
+  /* Footer 
+  ========================================== */
+  .footer {
+    text-align: center;
+
+    p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: $clr-accent2;
+
+      .footer__link {
+        font-size: 1rem;
+        font-weight: 400;
+        color: $clr-accent1;
+        opacity: 0.9;
+
+        &:hover,
+        &:focus {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+/* Media Queries
+========================================== */
+@media only screen and (max-width: 380px) {
+  .container-index {
+    .header {
+      h1 {
+        font-size: 3rem;
+      }
+    }
+  }
+}
