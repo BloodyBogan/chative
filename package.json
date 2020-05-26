@@ -13,11 +13,13 @@
     "real-time",
     "real-time chat app",
     "nodejs",
-    "socketio"
+    "socketio",
+    "express"
   ],
   "author": "BloodyBogan | Michal Kaštan",
   "license": "ISC",
   "devDependencies": {
     "node-sass": "^4.14.1"
-  }
+  },
+  "dependencies": {}
 }

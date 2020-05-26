@@ -1,6 +1,6 @@
 /* Font Import
 ========================================== */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;700&display=swap');
 
 /* Global Variables
 ========================================== */
@@ -21,7 +21,9 @@ $transition2: all 200ms ease-in;
   box-sizing: border-box;
 }
 
-h1 {
+h1,
+h2,
+h3 {
   font-family: $font-heading;
   font-weight: 900;
   margin: 0;
@@ -32,8 +34,15 @@ a,
 input,
 label,
 button,
-select {
+select,
+li {
   font-family: $font-text;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -53,9 +62,139 @@ body {
   background-color: $clr-background;
   color: $clr-text;
   margin: 0;
-  padding: 6em 0;
+  padding: 2em 0;
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+/* Scrollbar
+========================================== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $clr-background;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $clr-accent2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $clr-text;
+}
+
+/* Buttons
+========================================== */
+.btn {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $clr-accent2;
+  line-height: 1.2rem;
+  padding: 0.6em 0;
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid $clr-accent2;
+  transition: $transition2;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    transform-origin: left;
+    transform: scaleX(0);
+    background-color: $clr-accent1;
+    bottom: -2.5px;
+    transition: $transition2;
+  }
+
+  &:hover::before,
+  &:focus::before {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+
+  &:hover,
+  &:focus {
+    color: $clr-text;
+    border-bottom-color: transparent;
+  }
+}
+
+/* General Form Field Style
+========================================== */
+.form__field {
+  position: relative;
+  border-bottom: 2px solid $clr-accent2;
+
+  &::after {
+    content: '';
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: $clr-accent1;
+    transform-origin: left;
+    transform: scaleX(0);
+    top: 2px;
+  }
+
+  &:focus-within {
+    border-color: transparent;
+  }
+
+  &:focus-within::after {
+    transform: scaleX(1);
+  }
+
+  label {
+    position: absolute;
+    left: 0;
+    color: $clr-accent2;
+    font-size: 1.2rem;
+    transform-origin: left;
+    z-index: -10;
+  }
+
+  input {
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $clr-text;
+    margin: 0;
+    padding: 0.25rem 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    overflow: hidden;
+  }
+}
+
+/* General Footer Style 
+========================================== */
+.footer {
+  p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: $clr-accent2;
+
+    .footer__link {
+      font-size: 1rem;
+      font-weight: 400;
+      color: $clr-accent1;
+      opacity: 0.9;
+
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+    }
+  }
 }
 
 /* Index.html Container 
@@ -88,10 +227,16 @@ body {
 
     .form {
       .form__field {
-        position: relative;
         width: 100%;
-        border-bottom: 2px solid $clr-accent2;
         margin: 4rem auto 1rem;
+
+        &::after {
+          transition: $transition;
+        }
+
+        label {
+          transition: $transition;
+        }
 
         &:nth-child(1) {
           margin-top: 6rem;
@@ -101,93 +246,10 @@ body {
           margin-bottom: 2rem;
         }
 
-        &::after {
-          content: '';
-          position: relative;
-          display: block;
-          width: 100%;
-          height: 4px;
-          background-color: $clr-accent1;
-          transform-origin: left;
-          transform: scaleX(0);
-          transition: $transition;
-          top: 2px;
-        }
-
-        &:focus-within {
-          border-color: transparent;
-        }
-
-        &:focus-within::after {
-          transform: scaleX(1);
-        }
-
-        label {
-          position: absolute;
-          left: 0;
-          color: $clr-accent2;
-          font-size: 1.2rem;
-          transform-origin: left;
-          transition: $transition;
-          z-index: -10;
-        }
-
         &:focus-within label,
         input:not(:placeholder-shown) + label {
           transform: scale(0.8) translateY(-3.5rem);
           opacity: 0.8;
-        }
-
-        input {
-          width: 100%;
-          font-size: 1.2rem;
-          font-weight: 600;
-          color: $clr-text;
-          margin: 0;
-          padding: 0.25rem 0;
-          background: transparent;
-          border: none;
-          outline: none;
-          overflow: hidden;
-        }
-      }
-
-      .btn {
-        position: relative;
-        font-size: 1rem;
-        font-weight: 600;
-        color: $clr-accent2;
-        line-height: 1.2rem;
-        padding: 0.6em 0;
-        background: transparent;
-        outline: none;
-        border: none;
-        border-bottom: 2px solid $clr-accent2;
-        transition: $transition2;
-        cursor: pointer;
-
-        &::before {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 4px;
-          transform-origin: left;
-          transform: scaleX(0);
-          background-color: $clr-accent1;
-          bottom: -2.5px;
-          transition: $transition2;
-        }
-
-        &:hover::before,
-        &:focus::before {
-          transform: scaleX(1);
-          transform-origin: right;
-        }
-
-        &:hover,
-        &:focus {
-          color: $clr-text;
-          border-bottom-color: transparent;
         }
       }
     }
@@ -197,24 +259,191 @@ body {
   ========================================== */
   .footer {
     text-align: center;
+  }
+}
 
-    p {
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: $clr-accent2;
+/* =================================================================================
+  ==================================================================================== */
 
-      .footer__link {
-        font-size: 1rem;
+/* Chat.html Container
+  ========================================== */
+.container-chat {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  /* Header
+  ========================================== */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3em;
+
+    .logo {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 48px;
+        margin-right: 1rem;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+        font-weight: 700;
+      }
+    }
+  }
+
+  /* Main Container
+  ========================================== */
+  .main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    /* Sidebar
+    ========================================== */
+    .main__sidebar {
+      max-height: 400px;
+      overflow-x: hidden;
+      word-wrap: break-word;
+      flex: 2;
+      padding: 0 1em;
+
+      h3 {
+        position: relative;
+        font-size: 1.5rem;
         font-weight: 400;
-        color: $clr-accent1;
-        opacity: 0.9;
+        letter-spacing: 1px;
 
-        &:hover,
-        &:focus {
-          opacity: 1;
+        &::after {
+          content: '';
+          position: absolute;
+          width: 50%;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: $clr-accent1;
+          opacity: 0.4;
+        }
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 1.25;
+        margin: 0.25rem 0.5rem 0.5rem 0.5rem;
+      }
+
+      ul {
+        li {
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.25;
+          margin: 0.5rem 0.5rem 0.25rem 0.5rem;
+
+          &:not(:first-child) {
+            margin-top: 0.25rem;
+          }
         }
       }
     }
+
+    /* Messages
+    ========================================== */
+    .main__messages {
+      max-height: 400px;
+      overflow-x: hidden;
+      flex: 8;
+
+      .message-container {
+        position: relative;
+        padding: 1em;
+
+        .meta {
+          margin-bottom: 0.25em;
+          font-size: 1.1rem;
+          font-weight: 600;
+          opacity: 0.95;
+
+          span {
+            font-size: 0.95rem;
+            font-weight: 300;
+            opacity: 0.8;
+          }
+        }
+
+        .text {
+          font-size: 0.95rem;
+          font-weight: 400;
+          line-height: 1.5;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          width: 50%;
+          height: 2px;
+          left: 1em;
+          bottom: 0;
+          transform: translateY(-10px);
+          background-color: $clr-accent1;
+          opacity: 0.2;
+        }
+
+        &:first-child {
+          padding-top: 0;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  /* Send Message Container
+  ========================================== */
+  .message {
+    margin-top: 2em;
+
+    .chat-form {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .form__field {
+        width: 70%;
+
+        &::after {
+          transition: $transition2;
+        }
+
+        input {
+          padding: 0 0.5em;
+        }
+
+        label {
+          padding: 0 0.5em;
+          transition: $transition2;
+        }
+
+        &:focus-within label,
+        input:not(:placeholder-shown) + label {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  /* Footer 
+  ========================================== */
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2em;
   }
 }
 

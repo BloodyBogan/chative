@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Chative | Chat</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <meta
+      name="description"
+      content="Real-time chat application with rooms and users."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- Chat.html Container -->
+    <div class="container-chat">
+      <!-- Header -->
+      <header class="header c80">
+        <div class="logo">
+          <img src="./assets/message.svg" alt="Chative logo" />
+          <h1>Chative</h1>
+        </div>
+        <a href="./index.html" class="btn"
+          ><i class="fas fa-sign-out-alt"></i> Leave room</a
+        >
+      </header>
+      <!-- Main Container -->
+      <main class="main c80">
+        <!-- Sidebar -->
+        <div class="main__sidebar">
+          <h3><i class="fas fa-comments"></i> Room:</h3>
+          <h2 class="room">Europe</h2>
+          <h3><i class="fas fa-users"></i> Users:</h3>
+          <ul class="users">
+            <li>Bloody</li>
+            <li>Bogan</li>
+          </ul>
+        </div>
+        <!-- Messages -->
+        <div class="main__messages">
+          <div class="message-container">
+            <p class="meta">Bloody <span>2:50am</span></p>
+            <p class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+              repudiandae. Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Eligendi, repudiandae.
+            </p>
+          </div>
+          <div class="message-container">
+            <p class="meta">Bogan <span>10:12pm</span></p>
+            <p class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+              repudiandae.
+            </p>
+          </div>
+          <div class="message-container">
+            <p class="meta">Bogan <span>10:12pm</span></p>
+            <p class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+              repudiandae.
+            </p>
+          </div>
+          <div class="message-container">
+            <p class="meta">Bogan <span>10:12pm</span></p>
+            <p class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+              repudiandae.
+            </p>
+          </div>
+          <div class="message-container">
+            <p class="meta">Bogan <span>10:12pm</span></p>
+            <p class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+              repudiandae.
+            </p>
+          </div>
+        </div>
+      </main>
+      <!-- Message Input -->
+      <div class="message c80">
+        <form class="chat-form">
+          <div class="form__field">
+            <input
+              aria-label="Message input"
+              type="text"
+              name="message"
+              placeholder=" "
+              spellcheck="false"
+              autocomplete="off"
+              required
+            />
+            <label for="Message">Enter a message..</label>
+          </div>
+          <button aria-label="Send message button" class="btn">
+            <i class="fas fa-paper-plane"></i> Send
+          </button>
+        </form>
+      </div>
+      <!-- Footer -->
+      <footer class="footer c80">
+        <p>
+          &copy; 2020 |
+          <a
+            aria-label="Author's GitHub page link"
+            target="_blank"
+            href="https://github.com/BloodyBogan/chative"
+            class="footer__link"
+            >BloodyBogan</a
+          >
+        </p>
+        <p>
+          Icon made by
+          <a
+            aria-label="Icon's author link"
+            target="_blank"
+            href="https://www.flaticon.com/authors/freepik"
+            class="footer__link"
+            >Freepik</a
+          >
+          from
+          <a
+            aria-label="Icon's origin link"
+            target="_blank"
+            href="http://www.flaticon.com/"
+            class="footer__link"
+            >www.flaticon.com</a
+          >
+        </p>
+      </footer>
+    </div>
+    <script type="text/javascript" src="./js/main.js" async defer></script>
+  </body>
+</html>
