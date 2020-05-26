@@ -1,14 +1,21 @@
 {
   "name": "Chative",
   "version": "1.0.0",
-  "description": "",
+  "description": "Real-time chat application with rooms and users.",
   "main": "index.js",
   "scripts": {
     "build:sass": "node-sass -r --output-style compressed ./sass/style.scss -o css",
     "watch:sass": "npm run build:sass && npm run build:sass -- -w"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "chat",
+    "chat app",
+    "real-time",
+    "real-time chat app",
+    "nodejs",
+    "socketio"
+  ],
+  "author": "BloodyBogan | Michal Kaštan",
   "license": "ISC",
   "devDependencies": {
     "node-sass": "^4.14.1"
