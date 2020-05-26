@@ -353,7 +353,7 @@ body {
     /* Messages
     ========================================== */
     .main__messages {
-      max-height: 400px;
+      height: 400px;
       overflow-x: hidden;
       flex: 8;
 
@@ -453,6 +453,11 @@ body {
   .container-chat {
     .main {
       flex-direction: column;
+
+      .main__messages {
+        width: 100%;
+        flex: initial;
+      }
 
       .main__sidebar {
         display: flex;

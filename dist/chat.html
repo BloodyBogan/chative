@@ -35,57 +35,15 @@
         <div class="main__sidebar">
           <div class="main__room">
             <h3><i class="fas fa-comments"></i> Room:</h3>
-            <h2 class="room">
-              Europe
-            </h2>
+            <h2 class="room"></h2>
           </div>
           <div class="main__usersList">
             <h3><i class="fas fa-users"></i> Users:</h3>
-            <ul class="users">
-              <li>Bloody</li>
-              <li>Bogan</li>
-            </ul>
+            <ul class="users"></ul>
           </div>
         </div>
         <!-- Messages -->
-        <div class="main__messages">
-          <div class="message-container">
-            <p class="meta">Bloody <span>2:50am</span></p>
-            <p class="text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-              repudiandae. Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Eligendi, repudiandae.
-            </p>
-          </div>
-          <div class="message-container">
-            <p class="meta">Bogan <span>10:12pm</span></p>
-            <p class="text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-              repudiandae.
-            </p>
-          </div>
-          <div class="message-container">
-            <p class="meta">Bogan <span>10:12pm</span></p>
-            <p class="text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-              repudiandae.
-            </p>
-          </div>
-          <div class="message-container">
-            <p class="meta">Bogan <span>10:12pm</span></p>
-            <p class="text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-              repudiandae.
-            </p>
-          </div>
-          <div class="message-container">
-            <p class="meta">Bogan <span>10:12pm</span></p>
-            <p class="text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-              repudiandae.
-            </p>
-          </div>
-        </div>
+        <div class="main__messages"></div>
       </main>
       <!-- Message Input -->
       <div class="message c80">
@@ -93,6 +51,7 @@
           <div class="form__field">
             <input
               aria-label="Message input"
+              id="msg"
               type="text"
               name="message"
               placeholder=" "
@@ -139,6 +98,13 @@
         </p>
       </footer>
     </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.min.js"
+      integrity="sha256-ijqLssetA1NMNjZ+w1zaUafQQLm4IW5OoM8O+4tatME="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="./js/main.js" async defer></script>
   </body>
 </html>
