@@ -8,7 +8,15 @@ const variables = [
   '--clr-accent2',
 ];
 
-const availableThemes = ['light', 'dark', 'blue', 'gold', 'grey'];
+const availableThemes = [
+  'light',
+  'dark',
+  'blue',
+  'gold',
+  'grey',
+  'green',
+  'yellow',
+];
 
 const themes = {
   light: ['#e9e6e1', '#211d1e', '#d3a999', '#a5aeb7'],
@@ -16,14 +24,17 @@ const themes = {
   blue: ['#dcdde1', '#373945', '#3a7af2', '#c0c3cb'],
   gold: ['#eeede8', '#656c74', '#a47f48', '#262125'],
   grey: ['#eceef0', '#0e1515', '#7c7c7d', '#949698'],
+  green: ['#073630', '#f9f8f6', '#eee1d8', '#dbc7ae'],
+  yellow: ['#272727', '#fdbf2d', '#d2d2ca', '#f9f9f9'],
 };
 
+let defaultTheme = 'grey';
 let theme;
 
 if (!localStorage.currentTheme) {
-  localStorage.setItem('currentTheme', 'dark');
-  changeTheme('dark');
-  themeButton.innerText = 'light';
+  localStorage.setItem('currentTheme', defaultTheme);
+  changeTheme(defaultTheme);
+  themeButton.innerText = nextTheme(defaultTheme, availableThemes);
 } else {
   theme = localStorage.getItem('currentTheme');
   changeTheme(theme);
