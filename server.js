@@ -48,6 +48,14 @@ io.on('connection', (socket) => {
     io.to(user.room).emit('message', formatMessage(user.username, msg));
   });
 
+  socket.on('typing', (data) => {
+    const room = data.room;
+    const user = getCurrentUser(socket.id);
+    if (data.typing == true)
+      socket.broadcast.to(user.room).emit('display', data);
+    else socket.broadcast.to(user.room).emit('display', data);
+  });
+
   socket.on('disconnect', () => {
     const user = userLeave(socket.id);
 

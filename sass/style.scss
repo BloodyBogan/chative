@@ -379,7 +379,8 @@ body {
       flex: 8;
       word-wrap: break-word;
 
-      .message-container {
+      .message-container,
+      .typing {
         position: relative;
         padding: 1em;
 
@@ -420,6 +421,24 @@ body {
 
         p {
           margin: 0;
+
+          i {
+            font-size: 0.4em;
+            margin: 0.4em;
+            animation: typing 1s ease-in-out infinite;
+
+            &:nth-child(2) {
+              margin-left: 2em;
+            }
+
+            &:nth-child(3) {
+              animation-delay: 0.35s;
+            }
+
+            &:nth-child(4) {
+              animation-delay: 0.75s;
+            }
+          }
         }
       }
     }
@@ -466,6 +485,20 @@ body {
     align-items: center;
     justify-content: space-between;
     margin-top: 2em;
+  }
+}
+
+/* Animations
+========================================== */
+@keyframes typing {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 

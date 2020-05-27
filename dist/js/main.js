@@ -2,12 +2,45 @@ const chatForm = document.querySelector('.chat-form');
 const chatMessages = document.querySelector('.main__messages');
 const roomName = document.querySelector('.room');
 const userList = document.querySelector('.users');
+const inputField = document.getElementById('msg');
 
 const { username, room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
 });
 
 const socket = io();
+
+let typing = false;
+const timeoutTime = 1000;
+let timeout = undefined;
+
+msg.addEventListener('keyup', (e) => {
+  if (e.code !== 'Enter') {
+    typing = true;
+    socket.emit('typing', { username, room, typing: true });
+    clearTimeout(timeout);
+    timeout = setTimeout(typingTimeout, timeoutTime);
+  } else {
+    clearTimeout(timeout);
+    typingTimeout();
+  }
+});
+
+let fired = false;
+
+socket.on('display', (data) => {
+  if (data.typing == true) {
+    if (fired == false) {
+      outputTyping(data);
+      fired = true;
+    }
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  } else {
+    const element = document.querySelector('.typing');
+    chatMessages.removeChild(element);
+    fired = false;
+  }
+});
 
 socket.emit('joinRoom', { username, room });
 
@@ -43,6 +76,16 @@ function outputMessage(message) {
   document.querySelector('.main__messages').appendChild(div);
 }
 
+function outputTyping(data) {
+  const div = document.createElement('div');
+  div.classList.add('typing');
+  div.innerHTML = `<p class="text">
+  <b>${data.username}</b> is typing <i class="fas fa-circle"></i>
+  <i class="fas fa-circle"></i> <i class="fas fa-circle"></i>
+</p>`;
+  document.querySelector('.main__messages').appendChild(div);
+}
+
 function outputRoomName(room) {
   roomName.innerText = room;
 }
@@ -51,4 +94,9 @@ function outputUsers(users) {
   userList.innerHTML = `
     ${users.map((user) => `<li>${user.username}</li>`).join('')}
     `;
+}
+
+function typingTimeout() {
+  typing = false;
+  socket.emit('typing', { username, typing: false });
 }
