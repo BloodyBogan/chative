@@ -2,7 +2,7 @@
 Chative - a real-time chat application with rooms and users
 
 ## Description
-Real-time chat application with rooms and users. You can create any room you want, change your colour theme and see who is typing.
+Real-time, responsive chat application with rooms and users. You can create any room you want, change your colour theme and see who is typing. Created using HTML, CSS, JavaScript, NodeJS, Express, Socket.io, and more..
 
 ## Preview
 https://chative-app.herokuapp.com/
