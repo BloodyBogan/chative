@@ -4,10 +4,13 @@
 
 /* Global Variables
 ========================================== */
-$clr-background: #0f0909;
-$clr-text: #dedddd;
-$clr-accent1: #ea110b;
-$clr-accent2: #b8b8b8;
+:root {
+  --clr-background: #0f0909;
+  --clr-text: #dedddd;
+  --clr-accent1: #ea110b;
+  --clr-accent2: #b8b8b8;
+}
+
 $font-heading: 'Raleway', sans-serif;
 $font-text: 'Open Sans', serif;
 $transition: all 500ms cubic-bezier(0.5, 0, 0.75, 0);
@@ -25,6 +28,7 @@ h1,
 h2,
 h3 {
   font-family: $font-heading;
+  color: var(--clr-text);
   font-weight: 900;
   margin: 0;
 }
@@ -37,6 +41,7 @@ button,
 select,
 li {
   font-family: $font-text;
+  color: var(--clr-text);
 }
 
 ul {
@@ -59,8 +64,8 @@ img {
 }
 
 body {
-  background-color: $clr-background;
-  color: $clr-text;
+  background-color: var(--clr-background);
+  color: var(--clr-text);
   margin: 0;
   padding: 2em 0;
   line-height: 1.6;
@@ -74,15 +79,15 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: $clr-background;
+  background: var(--clr-background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $clr-accent2;
+  background: var(--clr-accent2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: $clr-text;
+  background: var(--clr-text);
 }
 
 /* Buttons
@@ -91,13 +96,13 @@ body {
   position: relative;
   font-size: 1rem;
   font-weight: 600;
-  color: $clr-accent2;
+  color: var(--clr-accent2);
   line-height: 1.2rem;
   padding: 0.6em 0;
   background: transparent;
   outline: none;
   border: none;
-  border-bottom: 2px solid $clr-accent2;
+  border-bottom: 2px solid var(--clr-accent2);
   transition: $transition2;
   cursor: pointer;
 
@@ -108,7 +113,7 @@ body {
     height: 4px;
     transform-origin: left;
     transform: scaleX(0);
-    background-color: $clr-accent1;
+    background-color: var(--clr-accent1);
     bottom: -2.5px;
     transition: $transition2;
   }
@@ -121,7 +126,7 @@ body {
 
   &:hover,
   &:focus {
-    color: $clr-text;
+    color: var(--clr-text);
     border-bottom-color: transparent;
   }
 }
@@ -130,7 +135,7 @@ body {
 ========================================== */
 .form__field {
   position: relative;
-  border-bottom: 2px solid $clr-accent2;
+  border-bottom: 2px solid var(--clr-accent2);
 
   &::after {
     content: '';
@@ -138,7 +143,7 @@ body {
     display: block;
     width: 100%;
     height: 4px;
-    background-color: $clr-accent1;
+    background-color: var(--clr-accent1);
     transform-origin: left;
     transform: scaleX(0);
     top: 2px;
@@ -155,7 +160,7 @@ body {
   label {
     position: absolute;
     left: 0;
-    color: $clr-accent2;
+    color: var(--clr-accent2);
     font-size: 1.2rem;
     transform-origin: left;
     z-index: -10;
@@ -165,7 +170,7 @@ body {
     width: 100%;
     font-size: 1.2rem;
     font-weight: 600;
-    color: $clr-text;
+    color: var(--clr-text);
     margin: 0;
     padding: 0.25rem 0;
     background: transparent;
@@ -181,18 +186,22 @@ body {
   p {
     font-size: 0.9rem;
     font-weight: 300;
-    color: $clr-accent2;
+    color: var(--clr-accent2);
 
     .footer__link {
       font-size: 1rem;
       font-weight: 400;
-      color: $clr-accent1;
+      color: var(--clr-accent1);
       opacity: 0.9;
 
       &:hover,
       &:focus {
         opacity: 1;
       }
+    }
+
+    #theme {
+      cursor: pointer;
     }
   }
 }
@@ -208,8 +217,14 @@ body {
   .header {
     text-align: center;
 
-    img {
+    svg {
       width: 128px;
+      height: 128px;
+
+      path {
+        fill: var(--clr-text);
+        stroke: var(--clr-text);
+      }
     }
 
     h1 {
@@ -283,9 +298,15 @@ body {
       display: flex;
       align-items: center;
 
-      img {
+      svg {
         width: 48px;
+        height: 48px;
         margin-right: 1rem;
+
+        path {
+          fill: var(--clr-text);
+          stroke: var(--clr-text);
+        }
       }
 
       h1 {
@@ -324,7 +345,7 @@ body {
           height: 2px;
           bottom: 0;
           left: 0;
-          background-color: $clr-accent1;
+          background-color: var(--clr-accent1);
           opacity: 0.4;
         }
       }
@@ -389,7 +410,7 @@ body {
           left: 1em;
           bottom: 0;
           transform: translateY(-10px);
-          background-color: $clr-accent1;
+          background-color: var(--clr-accent1);
           opacity: 0.2;
         }
 
@@ -486,7 +507,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 660px) {
+@media only screen and (max-width: 860px) {
   .container-chat {
     .footer {
       flex-direction: column;
